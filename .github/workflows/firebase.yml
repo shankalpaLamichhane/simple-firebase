@@ -28,7 +28,7 @@ jobs:
         cache: 'npm'
     - run: npm install -g yarn
     - name: yarn install,build and test
-    - run: |
+    - run: /
         yarn install
         yarn build
     - name: Archive Build
@@ -42,6 +42,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Download Build
+        uses: actions/download-artifact@v2
         with:
           name: build
           path: build
